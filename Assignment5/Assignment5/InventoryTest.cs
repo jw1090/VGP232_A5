@@ -8,6 +8,7 @@ namespace Assignment5
         [SetUp]
         public void SetUp()
         {
+
         }
 
         [TearDown]
@@ -17,7 +18,7 @@ namespace Assignment5
         }
 
         [Test]
-        public void TakeDamage()
+        public void Inve()
         {
 
         }

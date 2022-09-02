@@ -60,6 +60,11 @@
             {
                 Health += amount;
             }
+
+            if (Health > 0)
+            {
+                IsAlive = true;
+            }
         }
 
         public override string ToString()
