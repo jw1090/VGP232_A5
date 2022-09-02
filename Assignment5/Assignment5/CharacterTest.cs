@@ -5,7 +5,7 @@ namespace Assignment5
     [TestFixture]
     public class CharacterTest
     {
-        Character _character = null;
+        private Character _character = null;
 
         [SetUp]
         public void SetUp()
