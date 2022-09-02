@@ -1,36 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Assignment5
 {
     public class Inventory
     {
-        // The dictionary items consist of the item and the quantity
-        private Dictionary<Item, int> items;
-
-        public int AvailableSlots
-        {
-            get
-            {
-                return availableSlots;
-            }
-        }
-
-        public int MaxSlots
-        {
-            get
-            {
-                return MaxSlots;
-            }
-        }
-
+        // The List items consist of the item and the quantity
+        private List<Item> items;
 
         // The available slots to add item, once it's 0, you cannot add any more items.
         private int availableSlots;
+        public int AvailableSlots { get => availableSlots; }
 
         // The max available slots which is set only in the constructor.
         private int maxSlots;
+        public int MaxSlots { get => maxSlots; }
+
         public Inventory(int slots)
         {
             availableSlots = maxSlots;
@@ -54,20 +39,53 @@ namespace Assignment5
         /// <returns>True if you find the item, and false if it does not exist.</returns>
         bool TakeItem(string name, out Item found)
         {
-            throw new NotImplementedException();
+            found = null;
+
+            return false;
         }
 
         /// <summary>
         /// Checks if there is space for a unique item
         /// </summary>
-        /// <param name="item"></param>
+        /// <param name="newItem"></param>
         /// <returns></returns>
-        bool AddItem(Item item)
+        bool AddItem(Item newItem)
         {
             // Add it in the items dictionary and increment it the number if it already exist
             // Reduce the slot once it's been added.
             // returns false if the inventory is full
-            throw new NotImplementedException();
+
+            Item itemInInventory = ItemSearch(newItem); // Potential reference to the item in inventory. Returns null if not found.
+            if (itemInInventory == null) // Item is not in inventory.
+            {
+                if (availableSlots == 0)
+                {
+                    Console.WriteLine($"No slots avaialable.");
+                    return false;
+                }
+
+                items.Add(newItem);
+                --availableSlots;
+                return true;
+            }
+            else // Item found so increase it's amount by how many were picked up.
+            {
+                itemInInventory.Amount += newItem.Amount;
+                return true;
+            }
+        }
+
+        private Item ItemSearch(Item itemToFind)
+        {
+            foreach (Item item in items)
+            {
+                if (itemToFind.Name == item.Name)
+                {
+                    return item;
+                }
+            }
+
+            return null;
         }
 
         /// <summary>
