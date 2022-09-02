@@ -31,7 +31,7 @@ namespace Assignment5
 
             Console.WriteLine($"{hero.Name} flees from the enemy");
 
-            Console.WriteLine($"{hero.Name} find a {smallHealthPotion.Name}");
+            Console.WriteLine($"{hero.Name} finds a {smallHealthPotion.Name}");
             inventory.AddItem(smallHealthPotion);
 
             if (inventory.TakeItem(smallHealthPotion))
@@ -41,7 +41,7 @@ namespace Assignment5
             }
             Console.WriteLine(hero);
 
-            Console.WriteLine($"{hero.Name} found a {smallHealthPotion.Name} and {fragileKey.Name}.");
+            Console.WriteLine($"{hero.Name} finds a {smallHealthPotion.Name} and {fragileKey.Name}.");
             inventory.AddItem(smallHealthPotion);
             inventory.AddItem(fragileKey);
 
@@ -60,7 +60,7 @@ namespace Assignment5
                     }
                     else if (i == inventoryList.Count - 1)
                     {
-                        loot += $" and {inventoryList[i].Name}";
+                        loot += $", and {inventoryList[i].Name}";
                     }
                     else
                     {
