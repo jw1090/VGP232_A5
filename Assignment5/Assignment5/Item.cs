@@ -4,20 +4,19 @@
     public class Item
     {
         public string Name { get; set; }
-        public int Amount { get; set; }
-
+        public int ContextAmount { get; set; }
         public ItemGroup Group { get; set; }
 
         /// <summary>
         /// Constructor.
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="amount"></param>
+        /// <param name="contextAmount"></param>
         /// <param name="group"></param>
-        public Item(string name, int amount, ItemGroup group)
+        public Item(string name, int contextAmount, ItemGroup group)
         {
             Name = name;
-            Amount = amount;
+            ContextAmount = contextAmount;
             Group = group;
         }
 
